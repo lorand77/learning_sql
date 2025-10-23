@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS subjects;
+DROP TABLE IF EXISTS grades;
+
+
 CREATE TABLE Students (
     student_id INTEGER PRIMARY KEY,
     first_name TEXT,
@@ -61,7 +66,7 @@ JOIN Subjects sub ON g.subject_id = sub.subject_id;
 SELECT
     s.first_name, 
     s.last_name,
-    round(avg(g.grade),2) AS average_grade
+    round(avg(g.grade),2) AS average_grade, COUNT(*) AS num_grades
 FROM Grades g
 JOIN Students s ON g.student_id = s.student_id
 JOIN Subjects sub ON g.subject_id = sub.subject_id
