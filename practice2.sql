@@ -1,13 +1,13 @@
 -- ================================
 -- 🎮 GTA V Database Setup Script
--- Table: players
+-- Table: Players
 -- ================================
 
 -- Drop table if it already exists (optional, for clean resets)
-DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS Players;
 
 -- Create the table
-CREATE TABLE players (
+CREATE TABLE Players (
     player_id INT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     gang VARCHAR(50),
@@ -18,7 +18,7 @@ CREATE TABLE players (
 );
 
 -- Insert sample data
-INSERT INTO players (player_id, name, gang, wanted_level, cash, city, missions_completed) VALUES
+INSERT INTO Players (player_id, name, gang, wanted_level, cash, city, missions_completed) VALUES
 (1, 'Michael De Santa', 'The Rich Guys', 2, 150000.00, 'Los Santos', 25),
 (2, 'Franklin Clinton', 'The Hustlers', 3, 95000.50, 'Los Santos', 31),
 (3, 'Trevor Philips', 'The Maniacs', 5, 21000.00, 'Sandy Shores', 42),
@@ -31,27 +31,27 @@ INSERT INTO players (player_id, name, gang, wanted_level, cash, city, missions_c
 (10, 'Denise Robinson', 'The Hustlers', 1, 7000.00, 'Los Santos', 7);
 
 -- ✅ Confirm the data
-SELECT * FROM players;
+SELECT * FROM Players;
 
 
 -- b) Show only names and gangs
-SELECT name, gang from Players;
+SELECT name, gang FROM Players;
 
 -- c) Show names and wanted levels for players from Los Santos
-SELECT name, wanted_level from players where city = 'Los Santos';
+SELECT name, wanted_level FROM Players WHERE city = 'Los Santos';
 
-INSERT INto "Players"
+INSERT INTO Players
 VALUES
 (11, 'Corrupt FBI agent', 'FBI', 0, 70000, 'Los Santos', 0);
 
-UPDATE "Players"
-set wanted_level = 0
-where city = 'Sandy Shores';
+UPDATE Players
+SET wanted_level = 0
+WHERE city = 'Sandy Shores';
 
-DELETE from players
-where name = 'Corrupt FBI agent';
+DELETE FROM Players
+WHERE name = 'Corrupt FBI agent';
 
-SELECT gang, SUM(cash) as total_cash
-from "Players"
+SELECT gang, SUM(cash) AS total_cash
+FROM Players
 GROUP BY gang
-Order BY total_cash DESC;
+ORDER BY total_cash DESC;
