@@ -13,13 +13,17 @@ VALUES
 (3, 'Trevor Philips', 47, 'Sandy Shores', 120000);
 
 SELECT * from Players;
+
 SELECT * from players where cash > 100000;
+
 update Players
 set cash = cash + 10000
 where player_name =  'Franklin Clinton';
+
 insert into players (player_id, player_name, age, location, cash)
 VALUES
 (4, 'Lamar', 26, 'Shit Hole', -10000);
+
 DELETE from players
 WHERE cash < 0;
 
@@ -42,5 +46,7 @@ VALUES
 (5, 'Michael De Santa', 'Dewbauchee Exemplar', 'Coupe', 'Silver', 205000);
 
 SELECT * from vehicles;
+
 SELECT * from "Vehicles" where owner_name = 'Franklin Clinton';
+
 SELECT vehicle_model, location from players JOIN vehicles on players.player_name = vehicles.owner_name;
