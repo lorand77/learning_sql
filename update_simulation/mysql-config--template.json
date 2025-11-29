@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "user": "lorand",
+  "password": "...",
+  "database": "learning_sql",
+  "port": 3306
+}

@@ -28,3 +28,12 @@ select * from x;
 create table x2 like x;
 insert into x2 select * from x;
 insert into x2 select * from x2;
+
+
+# create user
+CREATE DATABASE IF NOT EXISTS learning_sql;
+CREATE USER IF NOT EXISTS 'lorand'@'localhost' IDENTIFIED BY '...';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP 
+       ON learning_sql.* TO 'lorand'@'localhost';
+FLUSH PRIVILEGES;
+

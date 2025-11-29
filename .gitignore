@@ -48,3 +48,6 @@ env/
 *.bak
 *.backup
 ff.txt
+
+# MySQL
+mysql-config.json
