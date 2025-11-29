@@ -1,0 +1,30 @@
+# install
+sudo apt update
+sudo apt install mysql-server mysql-client
+sudo systemctl status mysql
+sudo mysql_secure_installation
+sudo mysql
+
+# files
+ll /var/lib/mysql    # database files
+ll /var/log/mysql/   # log files
+ll /etc/mysql/    # config files
+cat /etc/mysql/mysql.conf.d/mysqld.cnf   # main config file 
+
+
+# testing SQL
+show databases;
+create database test1;
+use test1;
+create table x(a int, b text);
+show tables;
+select * from x;
+insert into x values (1,'hello');
+insert into x values (2,'hi');
+select * from x;
+delete from x where b='hi';
+select * from x;
+
+create table x2 like x;
+insert into x2 select * from x;
+insert into x2 select * from x2;
