@@ -37,3 +37,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP
        ON learning_sql.* TO 'lorand'@'localhost';
 FLUSH PRIVILEGES;
 
+
+# python mysql client
+sudo apt install python3-dev default-libmysqlclient-dev build-essential
+pip3 install mysqlclient
