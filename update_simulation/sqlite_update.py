@@ -10,11 +10,16 @@ if __name__ == "__main__":
     conn = sqlite3.connect(DB_FILE_SQLITE, timeout=300)
     cursor = conn.cursor()
     
+    BATCH_SIZE = 1000
+    
     for i in range(NUM_UPDATES_SQLITE):
         cursor.execute('UPDATE records SET value = value + 1 WHERE key = ?', 
                       (random.randint(1, NUM_KEYS),))
-        conn.commit()
         
+        if (i + 1) % BATCH_SIZE == 0:
+            conn.commit()
+    
+    conn.commit()
     conn.close()
     
     elapsed_time = time.time() - start_time
