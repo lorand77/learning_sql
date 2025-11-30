@@ -1,4 +1,4 @@
-NUM_KEYS = 10000
+NUM_KEYS = 100000
 
 DB_FILE_FF = "ff.txt"
 DB_FILE_FF_INDEX = "ff_index.txt"

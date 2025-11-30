@@ -41,3 +41,8 @@ FLUSH PRIVILEGES;
 # python mysql client
 sudo apt install python3-dev default-libmysqlclient-dev build-essential
 pip3 install mysqlclient
+
+
+# making things faster
+SET GLOBAL innodb_flush_log_at_trx_commit = 2;
+
