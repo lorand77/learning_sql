@@ -48,6 +48,7 @@ env/
 *.bak
 *.backup
 ff.txt
+ff_index.txt
 
 # MySQL
 mysql-config.json

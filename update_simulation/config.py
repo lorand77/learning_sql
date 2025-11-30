@@ -1,6 +1,7 @@
 NUM_KEYS = 10000
 
 DB_FILE_FF = "ff.txt"
+DB_FILE_FF_INDEX = "ff_index.txt"
 RECORD_WIDTH = 10
 NUM_UPDATES_FF = 10000
 
