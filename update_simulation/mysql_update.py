@@ -15,8 +15,8 @@ if __name__ == "__main__":
     conn.autocommit(False)
     cursor = conn.cursor()
     
-    BATCH_SIZE = 1000
-    
+    BATCH_SIZE = 10
+
     for i in range(NUM_UPDATES_MYSQL):
         cursor.execute('UPDATE records SET value = value + 1 WHERE `key` = %s', 
                       (random.randint(1, NUM_KEYS),))
