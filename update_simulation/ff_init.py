@@ -14,7 +14,7 @@ if __name__ == "__main__":
             f.write(f"{key}:0".ljust(RECORD_WIDTH - 1) + "\n")
     
     with open(DB_FILE_FF_INDEX, 'w') as f:
-        json.dump(index, f)
+        json.dump(index, f, indent=4)
     
     print(f"Created flat file database with {NUM_KEYS} records")
     print(f"Created index file with {len(index)} entries")
