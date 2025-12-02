@@ -15,16 +15,18 @@ if __name__ == "__main__":
     conn.autocommit(False)
     cursor = conn.cursor()
     
-    BATCH_SIZE = 10
+    BATCH_SIZE = 100
 
-    for i in range(NUM_UPDATES_MYSQL):
-        cursor.execute('UPDATE records SET value = value + 1 WHERE `key` = %s', 
-                      (random.randint(1, NUM_KEYS),))
+    for batch_start in range(0, NUM_UPDATES_MYSQL, BATCH_SIZE):
+        batch_end = min(batch_start + BATCH_SIZE, NUM_UPDATES_MYSQL)
+        batch_keys = [random.randint(1, NUM_KEYS) for _ in range(batch_end - batch_start)]
+        batch_keys.sort()
         
-        if (i + 1) % BATCH_SIZE == 0:
-            conn.commit()
+        for key in batch_keys:
+            cursor.execute('UPDATE records SET value = value + 1 WHERE `key` = %s', (key,))
+        
+        conn.commit()
     
-    conn.commit()
     conn.close()
     
     elapsed_time = time.time() - start_time
