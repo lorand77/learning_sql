@@ -42,7 +42,11 @@ FLUSH PRIVILEGES;
 sudo apt install python3-dev default-libmysqlclient-dev build-essential
 pip3 install mysqlclient
 
+# /etc/mysql/mysql.conf.d/mysqld.cnf
+innodb_buffer_pool_size = 4G
+innodb_buffer_pool_instances = 4
+innodb_flush_log_at_trx_commit = 2
+innodb_flush_method = O_DIRECT
+sync_binlog = 0
 
-# making things faster
-SET GLOBAL innodb_flush_log_at_trx_commit = 2;
 
